@@ -1,3 +1,24 @@
+from flask import Flask
+from threading import Thread
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot 7/24 Aktif!"
+
+def run():
+import os
+# 11. satırdaki app.run kısmını böyle değiştir:
+app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 8080)))
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
+
+# Botu başlatmadan önce bu fonksiyonu çalıştırıyoruz:
+keep_alive()
+
 import asyncio
 import datetime
 import random
