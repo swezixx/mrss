@@ -813,4 +813,7 @@ async def vote_error(interaction: discord.Interaction, error):
 
 
 # BOT TOKEN
-bot.run("MTU0MDA4NjQyMDc0MjQ3NTg2Ng.Gn_hc7.Nuf1FGowP3FSuh8_lqgGBqJJeQazvVm8LYSePk") 
+import os
+
+# En alt satırdaki bot.run kısmını böyle güncelle:
+bot.run(os.getenv("DISCORD_TOKEN"))
