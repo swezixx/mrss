@@ -12,12 +12,10 @@ def run():
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
 
+# Arka planda sunucuyu başlatıyoruz:
 Thread(target=run, daemon=True).start()
 
-
-# Botu başlatmadan önce bu fonksiyonu çalıştırıyoruz:
-keep_alive()
-
+# Buradan aşağıda başka bir Flask veya keep_alive() satırı OLMASIN!
 import asyncio
 import datetime
 import random
