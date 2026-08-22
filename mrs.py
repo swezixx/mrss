@@ -1,20 +1,19 @@
+import os
 from flask import Flask
 from threading import Thread
 
-app = Flask('')
+app = Flask(__name__)
 
 @app.route('/')
 def home():
     return "Bot 7/24 Aktif!"
 
 def run():
-import os
-# 11. satırdaki app.run kısmını böyle değiştir:
-app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 8080)))
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
 
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
+Thread(target=run, daemon=True).start()
+
 
 # Botu başlatmadan önce bu fonksiyonu çalıştırıyoruz:
 keep_alive()
